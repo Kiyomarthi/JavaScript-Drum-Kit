@@ -7,6 +7,7 @@ const keys = document.querySelectorAll(".key");
 window.addEventListener("keydown", function (e) {
   const key = document.querySelector(`audio[data-key="${e.keyCode}"]`);
   const style = document.querySelector(`div[data-key="${e.keyCode}"]`);
+  if (key?.getAttribute("data-key") != e.keyCode) return;
   key.currentTime = 0;
   key.play();
   style.classList.add("playing");
